@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # 혹은 원하는 브랜치
+      - main # 혹은 원하는 브랜치
 
 jobs:
   build:
@@ -16,13 +16,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install 의존성
         run: npm install
 
       - name: 빌드 웹사이트
-        run: npm run build  # 웹사이트 빌드 명령어로 변경하세요.
+        run: npm start # 웹사이트 빌드 명령어로 변경하세요.
 
       - name: 배포
         run: |
@@ -32,4 +32,3 @@ jobs:
           git add .  # 빌드된 파일을 추가하세요.
           git commit -m "Auto-deployed from GitHub Actions"
           git push
-
