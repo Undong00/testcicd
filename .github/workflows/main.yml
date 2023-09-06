@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "v18.14.2"
+          node-version: "14"
 
       - name: Install 의존성
         run: npm install
@@ -25,9 +25,6 @@ jobs:
         run: npm start
       - name: 배포
         run: |
-          git config --global user.name "${{ secrets.GITHUB_ACTOR }}"
-          git config --global user.email "${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com"
-          git checkout gh-pages
           git add .  
           git commit -m "Auto-deployed from GitHub Actions"
           git push
